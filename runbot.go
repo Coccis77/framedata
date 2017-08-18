@@ -46,5 +46,7 @@ func onMessage(session *discordgo.Session, message *discordgo.MessageCreate) {
 		return
 	}
 
-	session.ChannelMessageSend(message.ChannelID, "```" + response + "```")
+	if len(response) > 0 {
+		session.ChannelMessageSend(message.ChannelID, "```" + response + "```")
+	}
 }

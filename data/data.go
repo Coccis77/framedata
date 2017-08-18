@@ -20,7 +20,7 @@ type Move interface {
 func FindData(message string, move Move) (s string, err error) {
 	// Get the character name
 	// Message must have at least Character + Move name
-	explode := strings.Fields(message)
+	explode := strings.SplitN(message, " ", 2)
 	if len(explode) < 2 {
 		return
 	}
@@ -44,7 +44,7 @@ func FindData(message string, move Move) (s string, err error) {
 	}
 
 	// Get the move of the character
-	characterData, err := ioutil.ReadFile("json/" + characterFile)
+	characterData, err := ioutil.ReadFile("json/" + strings.ToLower(characterFile))
 
 	// Call the GetMove from the implementation
 	s, err = move.GetMove(characterData, explode[1])

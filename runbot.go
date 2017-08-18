@@ -10,6 +10,7 @@ import (
 	"github.com/fmicaelli/framedata/data"
 )
 
+// TODO Find a way to make a better injection
 var globalMove data.Move
 
 func RunBot(botToken string, m data.Move) {
@@ -45,5 +46,5 @@ func onMessage(session *discordgo.Session, message *discordgo.MessageCreate) {
 		return
 	}
 
-	session.ChannelMessageSend(message.ChannelID, response)
+	session.ChannelMessageSend(message.ChannelID, "```" + response + "```")
 }

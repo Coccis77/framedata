@@ -11,7 +11,7 @@ import (
 )
 
 /*
-Move must find the
+GetMove will be displayed by the bot
  */
 type Move interface {
 	GetMove(characterData []byte, moveName string) (s string, err error)
@@ -45,6 +45,8 @@ func FindData(message string, move Move) (s string, err error) {
 
 	// Get the move of the character
 	characterData, err := ioutil.ReadFile("json/" + characterFile)
+
+	// Call the GetMove from the implementation
 	s, err = move.GetMove(characterData, explode[1])
 
 	return

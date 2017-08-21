@@ -39,7 +39,7 @@ func FindData(message string, move Move) (s string, err error) {
 	}
 
 	// Check if the character exists
-	if !util.ContainsIgnoreCase(charactersFile[:], characterFile) {
+	if !util.ContainsIgnoreCaseAndWithoutSpace(charactersFile[:], characterFile) {
 		return
 	}
 

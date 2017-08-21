@@ -10,16 +10,15 @@ import (
 	"github.com/fmicaelli/framedata/data"
 )
 
-// TODO Find a way to make a better injection
-var globalMove data.Move
+var globalGetMove data.GetMove
 
-func RunBot(botToken string, m data.Move) {
+func RunBot(botToken string, g data.GetMove) {
 	dg, err := discordgo.New("Bot " + botToken)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	globalMove = m
+	globalGetMove = g
 
 	dg.AddHandler(onMessage)
 
@@ -40,7 +39,7 @@ func onMessage(session *discordgo.Session, message *discordgo.MessageCreate) {
 		return
 	}
 
-	response, err := data.FindData(strings.Replace(message.Content, "!", "", 1), globalMove)
+	response, err := data.FindData(strings.Replace(message.Content, "!", "", 1), globalGetMove)
 	if err != nil {
 		log.Print(err.Error())
 		return

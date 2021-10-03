@@ -2,7 +2,7 @@
 
 A simple framework to run a discord bot to display framedata for a specific character and a specific move.
 Examples can be found for the following games:
-* Street Fighter III: 3rd Strike - Fight for the Future => https://github.com/fmicaelli/thirdstrikedatabot
+* Street Fighter III: 3rd Strike - Fight for the Future => https://github.com/coccis77/thirdstrikedatabot
 
 ## How to use it?
 1. Install the project:

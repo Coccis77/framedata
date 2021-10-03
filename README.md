@@ -7,7 +7,7 @@ Examples can be found for the following games:
 ## How to use it?
 1. Install the project:
 
-`go get github.com/fmicaelli/framedata`
+`go get github.com/coccis77/framedata`
 
 2. Create a new project with a `main` package.
 
